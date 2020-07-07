@@ -17,14 +17,18 @@ public class MiniMusicApp {
 
             // put some MidiEvents into the track
             ShortMessage a = new ShortMessage(); // make a message
+            ShortMessage first = new ShortMessage();
+
             a.setMessage(144, 9, 44,100); // put instructions in the message
             MidiEvent noteOn = new MidiEvent(a, 1); // make a MidiEvent using the message
             track.add(noteOn); // add MidiEvent to the Track; which holds all the MidiEvent objects
 
             ShortMessage b = new ShortMessage();
             b.setMessage(128, 9, 44, 100);
-            MidiEvent noteOff = new MidiEvent(b, 20);
+
+            MidiEvent noteOff = new MidiEvent(b, 10);
             track.add(noteOff);
+
             // give the sequence to the sequencer (CD to CD player)
             player.setSequence(seq);
             // play
